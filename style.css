@@ -1,0 +1,72 @@
+/* ==== PERBAIKAN VIDEO BACKGROUND ==== */
+#video-container {
+  position: relative;
+  height: 100vh;              /* isi penuh tinggi layar */
+  overflow: hidden;
+}
+
+#video-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  object-fit: cover;          /* biar video tetap proporsional */
+}
+
+/* overlay transparan gelap biar teks jelas */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* teks di tengah layar */
+.video-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.video-content .inner h1 {
+  font-size: 3em;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.video-content p {
+  font-size: 1.2em;
+  font-weight: 300;
+  color: #f1f1f1;
+}
+
+/* animasi lembut saat muncul */
+.video-content .inner {
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(-50%);}
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+  .video-content .inner h1 {
+    font-size: 2em;
+  }
+  .video-content p {
+    font-size: 1em;
+  }
+}
